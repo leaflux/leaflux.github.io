@@ -89,7 +89,7 @@ $(function() {
     var templateScript = Handlebars.compile(template);
 
 
-    $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=" + cityUrlInfo, function(data){
+    $.getJSON("https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=" + cityUrlInfo, function(data){
       var compiledTemplate = templateScript(data);
       $('#currentWeather').html(compiledTemplate);
     });
@@ -99,7 +99,7 @@ $(function() {
     var template = $("#forecast-template").html();
     var templateScript = Handlebars.compile(template);
 
-    $.getJSON("http://api.openweathermap.org/data/2.5/forecast?q=" + cityUrlInfo, function(data){
+    $.getJSON("https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=" + cityUrlInfo, function(data){
       // Filters the JSON for every 8th 3 hour forecast, for a daily forecast instead (3*8 for 24 hours).
       for (var i=0; i<data.list.length; i++) {
         // Filters out the 1st forecast, which is for the current date.
